@@ -8,6 +8,7 @@ import Profile from './components/Profile';
 import Wallet from './components/Wallet';
 import Contacts from './components/Contacts';
 import MoneyTransaction from './components/MoneyTransaction';
+import History from './components/History';
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
      <Route path='/wallet' element={<Wallet/>}></Route>
      <Route path='/contacts' element={<Contacts/>}></Route>
      <Route path='/transaction' element={<MoneyTransaction/>}></Route>
+     <Route path='/history' element={<History/>}></Route>
     </Routes>
     </>
   );

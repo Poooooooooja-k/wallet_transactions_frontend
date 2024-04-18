@@ -24,7 +24,7 @@ const Contacts = () => {
 
 
   const handleSendMoney = (recipientId) => {
-    {console.log(recipientId,"-------rec-------------")}
+    
     navigate(`/transaction?recipient_id=${recipientId}`);
   };
 
@@ -46,7 +46,7 @@ const Contacts = () => {
                     <div className="text-sm font-medium text-gray-900">{contact.name}</div>
                     <div className="text-sm text-gray-500">{contact.phone_number}</div>
                   </div>
-                        <button className="bg-blue-500 text-white py-2 px-4 rounded ml-12" onClick={handleSendMoney }>
+                        <button className="bg-blue-500 text-white py-2 px-4 rounded ml-12" onClick={()=>handleSendMoney(contact.id) }>
                         Send Money
                         </button>
                 </div>

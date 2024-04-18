@@ -6,7 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 const Wallet = () => {
   const [balance, setBalance] = useState(0);
   const [amount, setAmount] = useState(0);
-  const [updated, setUpdated] = useState(null);
+  
 
   useEffect(() => {
     AxiosInstance.get('app/retrievebalance/') 
@@ -16,7 +16,7 @@ const Wallet = () => {
       .catch((error) => {
         console.error('Error fetching balance:', error);
       });
-  }, [updated]); 
+  },[]); 
 
   const handleAmountChange = (event) => {
     setAmount(Number(event.target.value));
@@ -27,7 +27,7 @@ const Wallet = () => {
       .then((response) => {
         setBalance(response.data.new_balance);
         toast.success('Money credited successfully');
-        setUpdated(Date.now()); 
+        setAmount(0)
       })
       .catch((error) => {
         console.error('Error adding money:', error);
@@ -43,7 +43,7 @@ const Wallet = () => {
         <Toaster />
         <div className='flex justify-center items-center h-screen col-span-9'>
           <div className='bg-blue-500 text-white p-8 rounded-lg'>
-            <h2 className='text-lg mb-4'>Your Wallet Balance: ${balance}</h2>
+            <h2 className='text-lg mb-4'>Your Wallet Balance: ₹{balance}</h2>
             <div className='mb-4'>
               <input
                 type='text'
